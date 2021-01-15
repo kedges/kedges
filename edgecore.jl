@@ -100,7 +100,7 @@ function exa(G :: Graph,k)
     end
 	#println("");
 	T3=time();
-	#println(fout,"basetime=",T2-T1,",k times=",T3-T2);
+	println(fout,"basetime=",T2-T1,",k times=",T3-T2);
     ansv = Linv * sel;
     return sum(ansv);
 end
@@ -191,6 +191,6 @@ function gre(G :: Graph, k ,ep)
 	#println(" ");
 	f = approxchol_sddm(LL+Dadd, tol=1e-8);
 	finans =sum(f(sel));
-	#println(fout,"k times=",T2-T1);
+	println(fout,"k times=",T2-T1);
 	return finans;
 end
