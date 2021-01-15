@@ -3,7 +3,7 @@
 Julia code for the article
 
 
-edgecore.jl contains Exact and Approx
+edgecore.jl contains Exact and Approx, which are function exa() and function gre()
 
 
-edgemain.jl runs with Exact and Approx
+edgemain.jl calls function exa() and gre()
