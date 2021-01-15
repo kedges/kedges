@@ -78,7 +78,7 @@ function findmaxexa(G :: Graph, Linv ,sel)
 end
 
 
-function exa(G :: Graph,k)
+function exa(G :: Graph,k,fout)
     L = lap(G);
     sel = zeros(G.n - G.n0- G.n1);
     for i = G.n0+G.n1+1 : G.n
@@ -105,7 +105,7 @@ function exa(G :: Graph,k)
     return sum(ansv);
 end
 
-function gre(G :: Graph, k ,ep)
+function gre(G :: Graph, k ,ep,fout)
 	finans= 0 ;
     d0=ep/(3*sqrt(G.n));
 	#d0=eps/(3);
