@@ -1,6 +1,6 @@
 # kedges
 
-Julia code for the article
+Julia code for the article "Maximizing Influence of Leaders in Social Networks"
 
 
 [edgecore.jl](./edgecore.jl) contains Exact and Approx, which are function exa() and function gre()
