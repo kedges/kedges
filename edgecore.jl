@@ -60,14 +60,14 @@ function calc(G :: Graph ,i ,Linv, sel)
 end
 
 
-function findmaxexa(G :: Graph, Linv ,sel)
+function findmaxexa(G :: Graph, Linv ,sel,eta)
     bestv = 0;
     tmp = 0
     maxinc = 0
     for i = G.n0+G.n1+1 : G.n
         if sel[i-(G.n0+G.n1)]< G.n1
             tmp = calc(G, i-G.n0-G.n1 , Linv ,sel)
-            if tmp > maxinc
+            if tmp > maxinc && (Linv*sel)[i-G.n0-G.n1]<eta
                 maxinc = tmp
                 bestv = i
             end
@@ -78,7 +78,7 @@ function findmaxexa(G :: Graph, Linv ,sel)
 end
 
 
-function exa(G :: Graph,k,fout)
+function exa(G :: Graph,k,eta,fout)
     L = lap(G);
     sel = zeros(G.n - G.n0- G.n1);
     for i = G.n0+G.n1+1 : G.n
@@ -91,7 +91,7 @@ function exa(G :: Graph,k,fout)
 	T2=time();
 	#println(" ");
     for i = 1 : k
-        j = findmaxexa(G, Linv ,sel);
+        j = findmaxexa(G, Linv ,sel,eta);
 		#print(j-G.n0-G.n1," ")
         sel[j-G.n0-G.n1] += 1;
         e=spzeros(G.n-G.n0-G.n1,1);
@@ -171,7 +171,7 @@ function gre(G :: Graph, k ,ep,fout)
 		maxx=0;
 		bestv=0;
 		for j = 1 : nn
-			if (sel[j]<G.n1 && add[j]>maxx)
+			if (sel[j]<G.n1 && add[j]>maxx && h2[j]<eta)
 				maxx = add[j]
 				bestv = j
 			end
