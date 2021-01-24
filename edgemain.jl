@@ -6,7 +6,7 @@ using LinearAlgebra
 fname = open("filename.txt", "r")
 str   = readline(fname)
 n     = parse(Int, str)
-
+eta   = 0.8;
 for i = 1 : n
     str = readline(fname)
     str = split(str)
@@ -18,7 +18,7 @@ for i = 1 : n
         println("Now running file:",str[1],"with eps=",ep);
         fout = open(string("data/","time.ans"),"a");
         print(fout,str[1]," ");
-        greed = gre(G,G.k ,ep,fout);
+        greed = gre(G,G.k ,ep,eta,fout);
         println(fout," ");
         println("gre=",greed);
         close(fout);
@@ -26,7 +26,7 @@ for i = 1 : n
     fout = open(string("data/","time.ans"),"a");
     print(fout,str[1]," ");
     println("Now running file:",str[1]," exactly");
-    exact=exa(G,G.k,fout);
+    exact=exa(G,G.k,eta,fout);
     println("exa=",exact);
     close(fout);
 end
