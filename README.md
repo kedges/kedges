@@ -1,6 +1,6 @@
-# Maximizing Influence of Leaders in Social Networks
+# Optimization on the Smallest Eigenvalue of the Grounded Laplacian Matrix via Edge Addition
 
-Julia code for the article "Maximizing Influence of Leaders in Social Networks"
+Julia code for the article "Optimization on the Smallest Eigenvalue of the Grounded Laplacian Matrix via Edge Addition"
 
 
 [edgecore.jl](./edgecore.jl) contains Exact and Approx, which are function exa() and function gre()
